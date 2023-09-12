@@ -1,7 +1,7 @@
 
 
 
-This repo produces the documentation at [trivial-js.org](trivial-js.org).
+This repo produces the documentation at [trivial-js.org](https://www.trivial-js.org).
 
 ## Updating the docs
 Documentation is built by Vitepress, full documentation is available at [Vitepress.dev](https://vitepress.dev)
