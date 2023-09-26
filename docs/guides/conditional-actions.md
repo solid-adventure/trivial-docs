@@ -3,10 +3,10 @@ outline: deep
 ---
 
 # Conditional Actions Guide
-Actions can be defined with a condition, meaning they can execute depending on the success or failure of a given condition. Conditional actions allow your action to support simple filtering without needing to nest your actions inside If/Else actions. 
+Actions can define a condition, meaning they will only execute if the given condition is True. Conditional actions allow you to support simple filtering without needing to be nested in an If/Else block.
 
 ## Setting Conditions for Actions
-In order for your action to require a condition to execute, you must first modify it's `descriptor.js` file. Inside of `/actions/YOUR-SERVICE/YOUR-ACTION/descriptor.js`, return a `condition` key on `getDefinitionFields`:
+In order for your action to require a condition, you must first modify it's `descriptor.js` file. Inside of `/actions/YOUR-SERVICE/YOUR-ACTION/descriptor.js`, return a `condition` key on `getDefinitionFields`:
 
 ```javascript
   getDefinitionFields() {
@@ -27,7 +27,8 @@ Now when you add your action to your app, you will see an input for a filter.
 Conditions are evaluated as JavaScript expressions. Some examples include not executing your action unless there is a certain quantity of a single attribute:
 
 ```javascript
-// payload is automatically set to the initial request's JSON body or the output of the previous action
+// payload is automatically set to the initial request's
+// JSON body or the output of the previous action
 payload = {
   "orders" : [
     {
@@ -71,5 +72,5 @@ payload.order.customer_group.includes('VIP')
 ## `false` Conditions
 In the case that the condition you provided for an action evaluates to `false`, your action will not execute and your app will continue running. This means if you have more actions after, they will run as expected even though a condition failed for a previous action. 
 :::tip 
-`false` conditions and other app logic can be verified in your app's activity log. 
+`false` conditions and other app logic can be verified in your app's Activity Log. 
 :::
