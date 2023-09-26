@@ -27,15 +27,49 @@ Now when you add your action to your app, you will see an input for a filter.
 Conditions are evaluated as JavaScript expressions. Some examples include not executing your action unless there is a certain quantity of a single attribute:
 
 ```javascript
+// payload is automatically set to the initial request's JSON body or the output of the previous action
+payload = {
+  "orders" : [
+    {
+      "id": 1,
+    },{
+      "id": 2,
+    },
+    ...
+  ]
+}
+```
+```javascript
 payload.orders.length > 100
 ```
 only executing on specific events:
-
+```javascript
+payload = {
+  "event_id": "HFD7GD",
+  "event_name": "customer_signup",
+  ...
+}
+```
 ```javascript
 payload.event_name === 'customer_signup'
 ```
 or only executing if specific values are included:
-
+```javascript
+payload = {
+    "order": {
+      "id": "GFS678",
+      "customer_group": [
+        "VIP"
+      ]
+    }
+}
+```
 ```javascript
 payload.order.customer_group.includes('VIP')
 ```
+
+## `false` Conditions
+In the case that the condition you provided for an action evaluates to `false`, your action will not execute and your app will continue running. This means if you have more actions after, they will run as expected even though a condition failed for a previous action. 
+:::tip 
+`false` conditions and other app logic can be verified in your app's activity log. 
+:::
