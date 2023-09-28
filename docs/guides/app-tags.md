@@ -11,24 +11,46 @@ Adding tags to apps lets you filter responses from the Trivial API.
 
 ## Assigning Tags to Apps
 
-On the command line, run the following from inside of the `trivial-api` directory to get the Ruby on Rails console started: 
-```
-bundle exec rails c
-```
+Tags can be added or removed through the Trivial API.
 
-Now, using the Rails console, store the app instance you'd like to add a tag to in a variable. For example, storing an existing app whose `id` is `55` in a variable named `appInstance` looks like:
-```
-appInstance = App.find_by id: 55
-```
-In the console, you can now access the `addTag!` and `removeTag!` methods through your app variable.
-The following adds the `{currency: "USD"}` tag to the `appInstance` app:
-```
-appInstance.addTag!(:currency, 'USD')
-```
+You can send a `POST` request to `/apps/{appId}/tags` with a `context` and `name` in the body of the request to add a tag. Assuming the API is running on port 3000:
+```json
+const tag = await fetch('http://localhost:3000/apps/GFD67G8/tags', {
+  method: "POST",
+  headers: {
+    'Content-Type': 'application/json',
+  },
+  body: JSON.stringify({
+    "context": "currency",
+    "name": "USD"
+  })
+})
+.then(response => response.json())
+})
 
-Tags can also be removed:
+// tag: {
+//   "id": 5,
+//   "context": "currency",
+//   "name": "USD"...
+// }
 ```
-appInstance.removeTag!(:currency, 'USD')
+To remove a tag, send a `DELETE` request to the same endpoint, with the same body:
+
+```json
+await fetch('http://localhost:3000/apps/GFD67G8/tags', {
+  method: "DELETE",
+  headers: {
+    'Content-Type': 'application/json',
+  },
+  body: JSON.stringify({
+    "context": "currency",
+    "name": "USD"
+  })
+})
+.then(response => response.json())
+})
+
+// { "status": 200 }
 ```
 :::tip
 A single Trivial app can support multiple tags, but they should be added (or removed) individually and not in batches.
@@ -36,9 +58,7 @@ A single Trivial app can support multiple tags, but they should be added (or rem
 
 ## Filtering Apps with Tags
 
-By including the `tagged_with` query parameter, we can filter the response from `apps/index` to only include apps with certain tags.
-
-Assuming the API is running on port 3000:
+By including the `tagged_with` query parameter, we can filter the response from `apps/index` to only include apps with certain tags:
 ```json
 const url = new URL('apps/', 'http:localhost:3000/')
 const query = {
