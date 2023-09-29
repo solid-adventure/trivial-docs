@@ -29,11 +29,9 @@ export default defineConfig({
       {
         text: 'Guides',
         items: [
-          { text: 'Use Cases', link: '/guides/introduction' },
           { text: 'App Tags', link: '/guides/app-tags' },
           { text: 'Client API Keys', link: '/guides/client-api-keys' },
-          { text: 'Conditional Actions', link: '/guides/conditional-actions' },
-          { text: 'WMS Billing', link: '/guides/wms-billing' }
+          { text: 'Conditional Actions', link: '/guides/conditional-actions' }
         ]
       }
     ],
