@@ -16,7 +16,7 @@ Tags can be added or removed through the Trivial API.
 You can send a `POST` request to `/apps/{appId}/tags` with `context` and `name` strings in the body of the request to add a tag. Assuming the API is running on port 3000:
 ::: code-group
 ```javascript [Request]
-const tag = await fetch('http://localhost:3000/apps/GFD67G8/tags', {
+const tag = await fetch('http://localhost:3000/apps/{appId}/tags', {
   method: "POST",
   headers: {
     'Content-Type': 'application/json',
@@ -45,7 +45,7 @@ To remove a tag, send a `DELETE` request to the same endpoint, with the same bod
 
 ::: code-group 
 ```javascript [Request]
-await fetch('http://localhost:3000/apps/GFD67G8/tags', {
+await fetch('http://localhost:3000/apps/{appId}/tags', {
   method: "DELETE",
   headers: {
     'Content-Type': 'application/json',
@@ -95,9 +95,9 @@ const taggedApps = await fetch(url.href,{
 taggedApps: [
     {
         "id": 1,
-        "name": "cxg564s7dg",
+        "name": "XXXXX",
         "descriptive_name": "App one",
-        "hostname": "cxg564s7dg",
+        "hostname": "XXXXX",
         "domain": "staging.trivialapps.io",
         "load_balancer": "staging-lb",
         "panels": null,
@@ -130,9 +130,9 @@ taggedApps: [
     },
     {
         "id": 2,
-        "name": "dgs6g7s8fgf",
+        "name": "YYYYY",
         "descriptive_name": "App two",
-        "hostname": "dgs6g7s8fgf",
+        "hostname": "YYYYY",
         "domain": "staging.trivialapps.io",
         "load_balancer": "staging-lb",
         "panels": null,
@@ -144,7 +144,7 @@ taggedApps: [
         "manifest": {},
         "tags": [
             {
-                "id": 1,
+                "id": 3,
                 "context": "colors",
                 "name": "red",
                 "taggable_type": "App",
@@ -153,7 +153,7 @@ taggedApps: [
                 "updated_at": "2023-09-28T00:10:10.297Z"
             },
             {
-                "id": 2,
+                "id": 4,
                 "context": "currency",
                 "name": "USD",
                 "taggable_type": "App",
@@ -165,9 +165,9 @@ taggedApps: [
     },
     {
         "id": 3,
-        "name": "dfds789sej",
+        "name": "ZZZZZ",
         "descriptive_name": "App three",
-        "hostname": "dfds789sej",
+        "hostname": "ZZZZZ",
         "domain": "staging.trivialapps.io",
         "load_balancer": "staging-lb",
         "panels": null,
@@ -179,7 +179,7 @@ taggedApps: [
         "manifest": {},
         "tags": [
             {
-                "id": 1,
+                "id": 5,
                 "context": "colors",
                 "name": "red",
                 "taggable_type": "App",
@@ -188,7 +188,7 @@ taggedApps: [
                 "updated_at": "2023-09-28T00:20:10.297Z"
             },
             {
-                "id": 2,
+                "id": 6,
                 "context": "currency",
                 "name": "USD",
                 "taggable_type": "App",
