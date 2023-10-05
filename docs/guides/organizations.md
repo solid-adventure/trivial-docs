@@ -4,14 +4,14 @@ outline: deep
 
 # Organizations
 
-Organizations on Trivial allow you to collaborate with others by enabling powerful and customizable Role-based access control to Apps. When you create an Organization in Trivial, you control the set of users and their level of access to Apps owned by your Organization.
+Trivial Organizations allow you to collaborate with other users by enabling powerful and customizable Role-based access control to Apps. When you create an Organization in Trivial, you control the set of users and their level of access to Apps owned by your Organization.
 
 
 ## Create an Organization
  
 Organizations can be created through the Trivial API.
 
-Send a `POST` request to `/organizations` with `name` and `billing_email` strings in the body of the request to create your first organization. Assuming the API is running on port 3000:
+Send a `POST` request to `/organizations` with `name` and `billing_email` strings in the body of the request to create your first Organization. Assuming the API is running on port 3000:
 ::: code-group
 ```javascript [Request]
 const organization = await fetch('http://localhost:3000/organizations', {
@@ -34,10 +34,10 @@ organization: {
 }
 ```
 :::
-By default you are registered as an `admin` user of an organization you create. 
+By default you are registered as an `admin` user of an Organization you create. 
 
 ## Viewing your Organizations
-Organizations you are a part of can be viewed in two ways- your individual organizations can be fetched by their ID's:
+Organizations you are a part of can be viewed in two ways- your individual Organizations can be fetched by their ID's:
 ::: code-group
 ```javascript [Request]
 const organization = await fetch('http://localhost:3000/organizations/{organizationId}', {
@@ -64,7 +64,7 @@ organization: {
 ```
 :::
 
-Or you can fetch all your organizations:
+Or you can fetch all your Organizations:
 ::: code-group
 ```javascript [Request]
 const organizations = await fetch('http://localhost:3000/organizations', {
@@ -90,13 +90,13 @@ organizations: [
 ```
 :::
 :::info
-You only see an organization's list of users when you fetch the individual organization.
+You only see an Organization's list of users when you fetch the individual Organization.
 :::
 
 ## Organization Management
-Attributes about the organization and its users can also be managed through the Trivial API.
+Attributes about the Organization and its users can also be managed through the Trivial API. Only `admin` users are authorized to make these changes.
 
-Updates to an organization are handled with a `PATCH` request:
+### Updating Organizations
 ::: code-group
 ```javascript [Request]
 const updatedOrganization = await fetch('http://localhost:3000/organization/{organizationId}', {
@@ -119,7 +119,7 @@ updatedOrganization: {
 ```
 :::
 
-Organizations can also be deleted:
+### Deleting Organizations
 ::: code-group
 ```javascript [Request]
 await fetch('http://localhost:3000/organization/{organizationId}', {
@@ -131,18 +131,17 @@ await fetch('http://localhost:3000/organization/{organizationId}', {
 .then(response => response.json())
 ```
 ```json [Response]
-{ status: 200 }
+{ message: 'Delete OK' }
 ```
 :::
 
-## Membership Management
-Finally, user membership of Organizations is handled with it's own set of API requests.
+Finally, `admin` users can also manage users of Organizations.
 
-Adding users:
+### Adding users
 ::: code-group
 ```javascript [Request]
 // adding a user as a member
-const newMember = await fetch('http://localhost:3000/organizations/{organizationId}/create_org_role}', {
+const newUser = await fetch('http://localhost:3000/organizations/{organizationId}/create_org_role}', {
   method: "POST",
   headers: {
     'Content-Type': 'application/json',
@@ -155,7 +154,7 @@ const newMember = await fetch('http://localhost:3000/organizations/{organization
 .then(response => response.json())
 ```
 ```json [Response]
-newMember: {
+newUser: {
     "id": 1,
     "name": "My Organization",
     "billing_email": "organization@email.com",
@@ -177,11 +176,11 @@ newMember: {
 ```
 :::
 
-Updating members:
+### Updating users
 ::: code-group
 ```javascript [Request]
 // updating a user to admin role
-const updatedMember = await fetch('http://localhost:3000/organizations/{organizationId}/update_org_role}', {
+const updatedUser = await fetch('http://localhost:3000/organizations/{organizationId}/update_org_role}', {
   method: "PUT",
   headers: {
     'Content-Type': 'application/json',
@@ -194,7 +193,7 @@ const updatedMember = await fetch('http://localhost:3000/organizations/{organiza
 .then(response => response.json())
 ```
 ```json [Response]
-newMember: {
+updatedUser: {
     "id": 1,
     "name": "My Organization",
     "billing_email": "organization@email.com",
@@ -216,7 +215,7 @@ newMember: {
 ```
 :::
 
-Deleting members/leaving organizations:
+### Deleting users/leaving Organizations
 ::: code-group
 ```javascript [Request]
 await fetch('http://localhost:3000/organizations/{organizationId}/delete_org_role}', {
@@ -231,6 +230,6 @@ await fetch('http://localhost:3000/organizations/{organizationId}/delete_org_rol
 .then(response => response.json())
 ```
 ```json [Response]
-{ status: 200 }
+{ message: 'Delete OK' }
 ```
 :::
