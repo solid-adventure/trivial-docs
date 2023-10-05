@@ -31,7 +31,9 @@ export default defineConfig({
         items: [
           { text: 'App Tags', link: '/guides/app-tags' },
           { text: 'Client API Keys', link: '/guides/client-api-keys' },
-          { text: 'Conditional Actions', link: '/guides/conditional-actions' }
+          { text: 'Conditional Actions', link: '/guides/conditional-actions' },
+          { text: 'Organizations', link: '/guides/organizations' }
+          
         ]
       }
     ],
