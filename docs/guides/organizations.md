@@ -100,7 +100,7 @@ Attributes about the Organization and its users can also be managed through the 
 ::: code-group
 ```javascript [Request]
 const updatedOrganization = await fetch('http://localhost:3000/organization/{organizationId}', {
-  method: "PATCH",
+  method: "PUT",
   headers: {
     'Content-Type': 'application/json',
   },
