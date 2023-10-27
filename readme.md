@@ -9,6 +9,7 @@ Documentation is built by Vitepress, full documentation is available at [Vitepre
 Start the dev server locally:
 ```
 nvm use 18.16.0
+npm install
 npm run docs:dev
 ```
 
