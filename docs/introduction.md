@@ -13,10 +13,7 @@ A Vue-based UI to generate and debug NodeJS code within safe parameters, with mi
 ## [trivial-core](https://github.com/solid-adventure/trivial-core)
 The NodeJS event processor generator, importable into a GUI as an NPM module.
 
-## trivial-ui-backend
-::: warning
-trivial-ui-backend has not yet been released as open source. It is expected to be released prior to Nov 2023.
-:::
+## [trivial-api](https://github.com/solid-adventure/trivial-api)
 A RESTful API counterpart to allow trivial-ui to store users, app configurations, and runtime diagnostics used in the ui.
 
 ## [trivial-docs](https://github.com/solid-adventure/trivial-docs)
