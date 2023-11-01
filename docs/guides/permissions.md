@@ -19,7 +19,7 @@ A request to the Permissions API follows the schema:
 - `{permissible_id}` is the internal ID for that resource instance.
 - `{user_id}` is the internal user ID for the user being granted the permission.
 
-The `/permissions` endpoint also exists to handle multiple permits at once. A request to this endpoint will omit the `permit`:
+The `/permissions` endpoint is for interacting with multiple permits. A request to this endpoint will omit the `permit`:
 ```/permissions/{permissible_type}/{permissible_id}/users/{user_id}```
 
 ## Granting Users Permissions to Resources
@@ -34,7 +34,31 @@ await fetch('http://localhost:3000/permissions/credential_sets/1/users/5', {
 .then(response => response.json())
 ```
 ```json [Response]
-200: ok
+{
+    "user_id": 5,
+    "permissions": [
+        {
+            "permissible_type": "Credential Set",
+            "permissible_id": 1,
+            "permits": [
+                "read",
+                "update",
+                "destroy",
+                "transfer",
+                "grant",
+                "revoke"
+            ],
+            "ids": [
+                21,
+                22,
+                23,
+                24,
+                25,
+                26
+            ]
+        }
+    ]
+}
 ```
 ::: 
 
@@ -51,7 +75,7 @@ await fetch('http://localhost:3000/permission/transfer/manifests/1/users/1', {
 .then(response => response.json())
 ```
 ```json [Response]
-200: ok
+{ message: 'Delete OK' }
 ```
 :::
 
