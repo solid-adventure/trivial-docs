@@ -79,7 +79,5 @@ await fetch('http://localhost:3000/permission/transfer/manifests/1/users/1', {
 ```
 :::
 
-:::info
-Revoking is not the same as deleting. When a user has all their permissions revoked there is an entry left in the database for historical record puroposes.
-:::
+
 
