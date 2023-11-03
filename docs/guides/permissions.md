@@ -6,6 +6,8 @@ outline: deep
 
 Trivial Permissions make it possible to share resources by granting Users with access to perform different operations on various resources. Permissions currently make it possible to share the `App`, `Manifest`, `ManifestDraft`, and `CredentialSet` resources. For every one of those resources there exists grantable permissions for the following operations: `read`, `update`, `delete`, `transfer`, `grant`, and `revoke`.
 
+Permissions are also directly related to Organizations in Trivial. When someone has an `admin` role assigned to them for an Organization, they automatically have all privileges on all resources. Learn more about Organizations [here](https://trivial-js.org/guides/organizations.html).
+
 ## The Permissions API
 
 Permissions can be granted through the Trivial API. 
