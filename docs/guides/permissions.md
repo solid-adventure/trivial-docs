@@ -4,9 +4,9 @@ outline: deep
 
 # Permissions
 
-Trivial Permissions make it possible to share resources by granting Users with access to perform different operations on various resources. Permissions currently make it possible to share the `App`, `Manifest`, `ManifestDraft`, and `CredentialSet` resources. For every one of those resources there exists grantable permissions for the following operations: `read`, `update`, `destroy`, `transfer`, `grant`, and `revoke`.
+Trivial Permissions make it possible to share resources by granting Users with access to perform different operations on various resources, e.g, `App`, `Manifest`, `ManifestDraft`, and `CredentialSet`. For each resource type, there are grantable permissions for `read`, `update`, `destroy`, `transfer`, `grant`, and `revoke`.
 
-::: tip Permissions are also directly related to Organizations in Trivial. When someone has an `admin` role assigned to them for an Organization, they automatically have all privileges on all resources.
+::: tip Permissions are also directly related to Organizations in Trivial. When a user has an `admin` role for an Organization, they automatically have ALL privileges on ALL resources.
 :::
 
 ## The Permissions API
