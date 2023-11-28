@@ -34,7 +34,7 @@ export default defineConfig({
           { text: 'Conditional Actions', link: '/guides/conditional-actions' },
           { text: 'Organizations', link: '/guides/organizations' },
           { text: 'Permissions', link: '/guides/permissions' },
-          { text: 'Testing', link:'/guides/testing'}
+          { text: 'Staging', link:'/guides/staging'}
           
         ]
       }

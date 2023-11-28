@@ -2,9 +2,9 @@
 outline: deep
 ---
 
-# Testing
+# Staging
 
-The easiest way to test your trivial-ui install is working correctly is to use the hosted staging API server.
+The easiest way to test that your trivial-ui install is working correctly is to use the hosted staging API server.
 
 ## Accessing Staging API Server
 
