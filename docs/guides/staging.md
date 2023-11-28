@@ -19,4 +19,5 @@ TRIVIAL_URL = https://trivial-api-staging.herokuapp.com
 ```
 Once the env variable is added, restart your local trivial-ui. For more about the env file, please refer to the trivial-ui [repository](https://github.com/solid-adventure/trivial-ui).
 
-3. Login to your local trivial-ui using the credentials created on step 1 at  <a href="http://localhost:3000/login" target="_blank" rel="noreferrer">http://localhost:3000/login</a>.
+3. Login to your local trivial-ui using the credentials created on step 1 at 
+<a href="http://localhost:3000/login" target="_blank" rel="noreferrer">http://localhost:3000/login</a>
