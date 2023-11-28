@@ -34,7 +34,7 @@ export default defineConfig({
           { text: 'Conditional Actions', link: '/guides/conditional-actions' },
           { text: 'Organizations', link: '/guides/organizations' },
           { text: 'Permissions', link: '/guides/permissions' },
-          { text: 'Staging', link:'/guides/staging'}
+          { text: 'Hosted Staging Env', link:'/guides/staging'}
           
         ]
       }
