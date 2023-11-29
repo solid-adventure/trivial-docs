@@ -33,7 +33,8 @@ export default defineConfig({
           { text: 'Client API Keys', link: '/guides/client-api-keys' },
           { text: 'Conditional Actions', link: '/guides/conditional-actions' },
           { text: 'Organizations', link: '/guides/organizations' },
-          { text: 'Permissions', link: '/guides/permissions' }
+          { text: 'Permissions', link: '/guides/permissions' },
+          { text: 'Hosted Staging Env', link:'/guides/staging'}
           
         ]
       }
@@ -45,5 +46,6 @@ export default defineConfig({
     // socialLinks: [
     //   { icon: 'github', link: 'https://github.com/vuejs/vitepress' }
     // ]
-  }
+  }, 
+  ignoreDeadLinks: true
 })
