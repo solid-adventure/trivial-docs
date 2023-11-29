@@ -9,7 +9,7 @@ hero:
   actions:
     - theme: brand
       text: Use Cases
-      link: /guides/introduction
+      link: /introduction
     - theme: alt
       text: View on GitHub
       link: https://github.com/solid-adventure/trivial-core
