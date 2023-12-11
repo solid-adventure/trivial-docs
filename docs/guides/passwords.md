@@ -5,7 +5,7 @@ outline: deep
 There are endpoints for creating/updating a password through the Trivial-API.s
 ## Creating/Updating a password endpoints
 
-`/singnup` - for creating a user.
+`/signnup` - for creating a user.
 
 `/changepassword` - used when a logged in user opt in to change their password internally.
 
