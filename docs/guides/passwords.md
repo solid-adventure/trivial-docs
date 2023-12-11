@@ -2,14 +2,14 @@
 outline: deep
 ---
 # Passwords
-There are endpoints for creating/updating a password through the Trivial-API.s
+There are endpoints for creating/updating a password through the Trivial-API.
 ## Creating/Updating a password endpoints
 
 `/signup` - for creating a user.
 
 `/changepassword` - used when a logged in user opt in to change their password internally.
 
-`/recoverpassword/resetpassword` - used when a NOT logged in user tries to change their password.
+`/recoverpassword`,`/resetpassword` - used when a NOT logged in user tries to change their password.
 
 `/acceptinvite`- used when a user has to accept an invite to an organization.
 
