@@ -2,7 +2,7 @@
 outline: deep
 ---
 # Passwords
-There are 4 current paths involved with creating/updating a password through the Trivial-API.s
+There are endpoints for creating/updating a password through the Trivial-API.s
 ## Creating/Updating a password endpoints
 
 `/singnup` - for creating a user.
