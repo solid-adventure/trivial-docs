@@ -4,8 +4,7 @@ outline: deep
 
 <script setup>
 import { useData } from 'vitepress'
-
-const { site, theme, page, frontmatter } = useData()
+const { isDark } = useData()
 </script>
 
 # Passwords
@@ -41,20 +40,84 @@ organization: {
 :::
 
 ## Resetting Password
-Here is an outline of the steps involved with using `/recoverpassword` endpoint.
-
-<div>
-<img src="../assets/Reset_Password_Flow.png" >
+Here is an outline of the steps involved with using `/recoverpassword` endpoint. 
 
 
-  <!-- {% if $theme.mode === 'light' %}
-    <img src="../assets/Reset_Password_Flow.png" width="600" height="600" alt="Light Image">
-  {% else %}
-    <img src="/path/to/dark-image.png" width="600" height="600" alt="Dark Image">
-  {% endif %} -->
-</div>
+<img v-if="isDark" src = "../assets/Reset_Password_Flow_Dark.png"/>
+<img v-else src = "../assets/Reset_Password_Flow_Light.png"/>
 
-## Accept Invite
+
+#### Sample Request for Step 2: 
+::: code-group
+```javascript [Request]
+await fetch("http://localhost:3000/auth/password", {
+  method: "POST",
+  headers: {
+    "Content-Type": "application/json"
+  },
+  body: JSON.stringify({
+    "email" : "user@email.com",
+    "redirect_url": "https://www.trivialapps.io/resetpassword"
+  }),
+})
+.then((response) => response.json())
+```
+```json [Response]
+{
+  success: true,
+  message: "An email has been sent to 'user@email.com' containing instructions for resetting your password."
+}  
+```
+:::
+
+#### Sample Request for Step 5: 
+::: code-group
+```javascript [Request]
+  await fetch("http://localhost:3000/auth/invitation", {
+  method: "PUT",
+  headers: {
+    "Content-Type": "application/json"
+  },
+  body: JSON.stringify({
+    "password": "SamplePass!789",
+    "reset_password_token": "zTqMDqbXoA8hwQzzPPPs"
+  }),
+})
+.then((response) => response.json())
+```
+```json [Response]
+{
+}  
+```
+:::
+
+## Changing Password
+Changing password when signed in is done through the `/changepassword` path at trivial-ui. Once the current, new, and confirmed password are submitted, a PUT request is sent to `/auth/password` at trivial-api. Here is a sample request: 
+::: code-group
+```javascript [Request]
+await fetch("http://localhost:3000/auth/password", {
+  method: "PUT",
+  headers: {
+    "Content-Type": "application/json",
+    "Authorization":"Bearer yyyy"
+  },
+  body: JSON.stringify({
+    "password" : "NewPassword!789",
+    "password_confirmation" : "NewPassword!789",
+    "current_password" : "SamplePass!789"
+  }),
+})
+.then((response) => response.json())
+```
+```json [Response]
+{
+  "success": true,
+  "data": {metadata},
+  "message": "Your password has been successfully updated."
+}
+```
+:::
+## Accepting Invite
 Accepting an invite through trivial-ui begins with signing in or creating account through the `/acceptinvitation` path. Once you're information has been filled out, trivial-ui send a PUT request to the `auth/invitaiton` endpoint at trivial-api to confirm your invitation. Here is a sample request:
 ::: code-group
 ```javascript [Request]
@@ -69,7 +132,7 @@ Accepting an invite through trivial-ui begins with signing in or creating accoun
     "password_confirmation": "SamplePass!789"
   }),
 })
-  .then((response) => response.json())
+.then((response) => response.json())
 ```
 ```json [Response]
 {
