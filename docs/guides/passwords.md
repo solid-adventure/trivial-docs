@@ -35,15 +35,15 @@ Outline of the steps involved with resetting a password.
 
 Note on Step 4: 
 
-The `redirect_url` for `http://redirect_url/resetpassword` can be set [here](https://github.com/solid-adventure/trivial-ui/blob/e74d0b8790f9dafce6a318c7441bf0ce0e2be909/source/components/RecoverPassword.vue#L77C24-L77C24). In a future release, this will be configurable via an environment variable. See [solid-adventure/trivial-ui#27](https://github.com/solid-adventure/trivial-ui/issues/27)
+The `redirect_url` for `http://[redirect_url]/resetpassword` can be set [here](https://github.com/solid-adventure/trivial-ui/blob/e74d0b8790f9dafce6a318c7441bf0ce0e2be909/source/components/RecoverPassword.vue#L77C24-L77C24). In a future release, this will be configurable via an environment variable. See [solid-adventure/trivial-ui#27](https://github.com/solid-adventure/trivial-ui/issues/27)
 
 Note on Step 6:
 
-Manual attempting to replicate this call requires adding query parameters after `/auth/password`. This can be found in logs after the redirection_url.
+Manual attempts to replicate this call requires adding query parameters after `/auth/password`. This can be found in logs after the redirection_url.
 
 Example output in log: 
 
-`Redirected to http://redirection_url/resetpassword?query_parameters`
+`Redirected to http://[redirection_url]/resetpassword?[query_parameters]`
 
 :::
 
