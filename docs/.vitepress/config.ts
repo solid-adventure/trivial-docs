@@ -32,6 +32,7 @@ export default defineConfig({
           { text: 'App Tags', link: '/guides/app-tags' },
           { text: 'Client API Keys', link: '/guides/client-api-keys' },
           { text: 'Conditional Actions', link: '/guides/conditional-actions' },
+          { text: 'Making Requests', link: 'guides/requests', },
           { text: 'Organizations', link: '/guides/organizations' },
           { text: 'Permissions', link: '/guides/permissions' },
           { text: 'Hosted Staging Env', link:'/guides/staging'},
