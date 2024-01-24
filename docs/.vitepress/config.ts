@@ -35,7 +35,8 @@ export default defineConfig({
           { text: 'Organizations', link: '/guides/organizations' },
           { text: 'Permissions', link: '/guides/permissions' },
           { text: 'Hosted Staging Env', link:'/guides/staging'},
-          { text: 'Passwords', link: 'guides/passwords'}
+          { text: 'Passwords', link: 'guides/passwords'}, 
+          { text: 'Audits', link: 'guides/audits'}
         ]
       }
     ],
