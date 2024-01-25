@@ -8,8 +8,8 @@ In situations where authorized access to Trivial's API is required for an indefi
 
 This walkthrough demonstrates how to generate and use a long-lived API key over Trivial's API. 
 
-:::warning
-Client Keys only suitable in **server:server connections**, and should never be used in the UI. Exposing the token to your network would provide *wide-open access* to the API.
+:::info
+Client Keys only suitable in **server:server connections**, and should not be used in the UI. Client Keys provide *unscoped* access to the API, overriding user and organization authorization schemes.
 :::
 
 ## Generating Client Keys
