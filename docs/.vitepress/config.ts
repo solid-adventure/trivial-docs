@@ -30,13 +30,13 @@ export default defineConfig({
         text: 'Guides',
         items: [
           { text: 'App Tags', link: '/guides/app-tags' },
+          { text: 'Audits', link: 'guides/audits'},
           { text: 'Client API Keys', link: '/guides/client-api-keys' },
           { text: 'Conditional Actions', link: '/guides/conditional-actions' },
           { text: 'Organizations', link: '/guides/organizations' },
           { text: 'Permissions', link: '/guides/permissions' },
           { text: 'Hosted Staging Env', link:'/guides/staging'},
           { text: 'Passwords', link: 'guides/passwords'}, 
-          { text: 'Audits', link: 'guides/audits'}
         ]
       }
     ],

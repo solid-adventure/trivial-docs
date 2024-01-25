@@ -5,7 +5,7 @@ const { isDark } = useData()
 
 # Audits 
 
-Trivial-API leverages the Audited GEM to log and monitor alterations across models. Any Create, Delete, or Update actions performed on Objects are documented within the `audits` table.
+Trivial-API leverages the [Audited gem](https://github.com/collectiveidea/audited) to log and monitor alterations across models. Any Create, Delete, or Update actions performed on Objects are documented within the `audits` table.
 
 ## Audits Diagram
 
@@ -16,12 +16,14 @@ Trivial-API leverages the Audited GEM to log and monitor alterations across mode
 
 ### Note on `user_id`:
 
-When a user accepts an invitation to join an organization, the `user_id` field in the recorded entries in the `audit` table appears blank. This is because the Audited GEM relies on the presence of the `current_user` variable to track changes, and accepting an invitation via api call or console doesn't automatically set this variable. As a result, there is no reference for current_user, and the Audited GEM leaves the user_id as null or blank.  `current_user` is not set in any case where a user can make an API call without needing identifying `devise-tokens` or when making alterations directly through the console. It's important to note that this behavior is intentional and aligns with the `audits` design. When reviewing `audit` table records related to accepted invitations, the absence of a `user_id` is expected in these scenarios.
+The `user_id` column in each audit entry provides information about the user responsible for a change within an object. This column is populated when a user signs in and is typically filled in for all audit entries. However, there's a specific scenario where the `user_id` is left blank – when a user accepts an invitation. This behavior is due to the fact that accepting an invitation doesn't require a user to sign in or undergo authentication. 
+
+To uncover the `user_id` associated with an accepted invitation, we recommend identifying the audit entry linked to the creation of an `OrgRole`. You can pinpoint this entry by looking for a blank or null `user_id`, along with the `CREATE` value in the `action` column and the `OrgRole` value in `autible_type` column. Once you've located this entry, a quick check of the `audit_changes` column will unveil the `user_id` of the user who accepted the organization invitation
 
 
 ## Interacting with Audits via Console
 
-The Audited GEM allows users to retrieve relevant information in regards to model changes. Here are two commands available to use.
+The Audited gem allows users to retrieve relevant information in regards to model changes. Here are two commands available to use.
 
 ::: tip
 To access the console, type the following: `bundle exec rails c`
@@ -56,8 +58,3 @@ user.audits.count
  => 16
 ```
 :::
-
-## Audited GEM
-
-
-More info about the audited GEM and available console commands can be found [here](https://www.rubydoc.info/gems/audited).
