@@ -14,7 +14,22 @@ Client Keys only suitable in **server:server connections**, and should not be us
 
 ## Generating Client Keys
 
-To generate a client key, on the command line, run the following from inside of the `trivial-api` directory to get the Ruby on Rails console started: 
+To generate a client key,
+
+Step 1) Create a client secret and copy to your clipboard:
+```bash
+openssl rand -hex 32 | pbcopy
+```
+
+Then, set the `CLIENT_SECRET` environment variable to the value of the secret you just generated:
+```yaml
+
+# .env
+CLIENT_SECRET=8d105ffc... # paste your secret here
+
+```
+
+Step 2) Now that your `CLIENT_SECRET` is set, still on the command line, run the following from inside of the `trivial-api` directory to get the Ruby on Rails console started:
 ```
 bundle exec rails c
 ```
@@ -39,23 +54,20 @@ You can print the entire object by simply typing `key` into the console:
  :key_access_token=>"yyy"}
 ```
 
-Or, you can directly copy the `key_access_token` value to your clipboard:
+Step 4) Now that we have a key, we need to save the key_id to allow access with it, separating multiple clients with a comma:
+```yaml
+#.env
+CLIENT_SECRET=8d105ffc... # Already set during Step 1
+CLIENT_KEYS=xxx, another-key # key_id from key
 ```
-`echo #{key[:key_access_token]} | pbcopy`
-```
+After restarting your local server, your local instance will now accept the token for authorization.
+
 
 :::info
 The generated `key_id` is encrypted into `key_access_token`, and they are only available in the result of the call. If the id or key is lost, it is unrecoverable.
 :::
 
-Store your `key_id` and `key_access_token` safely on your device.
 ## Using Client Keys
-
-The first step in using the key is to set the `key_id` value as an environment variable. If you're running the API locally, you can add the `CLIENT_KEYS` variable to `trivial-api/.env`, separating multiple clients with a comma:
-```
-CLIENT_KEYS=xxx, another-key # key_id from key
-```
-After restarting your local server, your local instance will now accept the token for authorization.
 
 In your client, you can now use the access token in an API call as a Bearer token. Assuming the API is running on port 3000:
 ```json

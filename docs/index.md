@@ -8,7 +8,7 @@ hero:
   tagline: Event-driven business rules for teams that scale.
   actions:
     - theme: brand
-      text: Use Cases
+      text: Docs
       link: /introduction
     - theme: alt
       text: View on GitHub
