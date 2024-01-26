@@ -27,8 +27,8 @@ To create a one-off user without enabling registration, visit [http://localhost:
 Outline of the steps involved with resetting a password. 
 
 <div align = "center">
-  <img v-if="isDark" height = "200px" width = "400" src = "../assets/Reset_Password_Flow_Light.svg"/>
-  <img v-else height = "200px" width = "400" src = "../assets/Reset_Password_Flow_Dark.svg" />
+  <img v-if="isDark" height = "200" width = "400" src = "../assets/Reset_Password_Flow_Light.svg"/>
+  <img v-else height = "200" width = "400" src = "../assets/Reset_Password_Flow_Dark.svg" />
 </div>
 
 ::: info
@@ -56,6 +56,6 @@ Flow diagram between endpoints within trivial-ui and trivial-api for invitations
 
 
 <div align = "center">
-  <img v-if="isDark" height = "200px" width = "400" src = "../assets/invite_flow_diagram_light.svg"/>
-  <img v-else height = "200px" width = "400" src = "../assets/invite_flow_diagram_dark.svg" />
+  <img v-if="isDark" height = "200" width = "400" src = "../assets/invite_flow_diagram_light.svg"/>
+  <img v-else height = "200" width = "400" src = "../assets/invite_flow_diagram_dark.svg" />
 </div>
