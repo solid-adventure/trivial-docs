@@ -13,7 +13,13 @@ Adding tags to apps lets you filter responses from the Trivial API.
 
 Tags can be added or removed through the Trivial API.
 
-You can send a `POST` request to `/apps/{appId}/tags` with `context` and `name` strings in the body of the request to add a tag. Assuming the API is running on port 3000:
+You can send a `POST` request to `/apps/{appId}/tags` with `context` and `name` strings in the body of the request to add a tag. 
+
+:::info Note
+`{appId}` refers to the "name" (e.g., "b73a02bfe5aa50") of the app, not the "id."
+:::
+
+Assuming the API is running on port 3000:
 ::: code-group
 ```javascript [Request]
 const tag = await fetch('http://localhost:3000/apps/{appId}/tags', {
