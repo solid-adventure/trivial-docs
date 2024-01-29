@@ -17,10 +17,24 @@ The following cURL command be used to locate the Bearer token:
 
 :::code-group
 ```cURL [Request]
-curl -X POST -d "email={email}&password={password}" -i http://localhost:3000/auth/sign_in | grep -i "Authorization"
+curl -X POST -d "email={email}&password={password}" -i http://localhost:3000/auth/sign_in
 ```
 ```[Response]
-Authorization: Bearer yyyy
+HTTP/1.1 200 OK
+X-Frame-Options: SAMEORIGIN
+X-XSS-Protection: 0
+X-Content-Type-Options: nosniff
+X-Download-Options: noopen
+X-Permitted-Cross-Domain-Policies: none
+Referrer-Policy: strict-origin-when-cross-origin
+Content-Type: application/json; charset=utf-8
+access-token: [ACCESS_TOKEN_PLACEHOLDER]
+token-type: Bearer
+client: [CLIENT_PLACEHOLDER]
+expiry: [EXPIRY_PLACEHOLDER]
+uid: [UID_PLACEHOLDER]
+Authorization: Bearer [AUTHORIZATION_PLACEHOLDER] // [!code focus]
+.....
 ```
 :::
 
