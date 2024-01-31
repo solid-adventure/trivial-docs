@@ -10,13 +10,13 @@ Trivial-API leverages the [Audited gem](https://github.com/collectiveidea/audite
 ## Audits Diagram
 
 <div>
-  <img v-if="isDark" height = "300px" width = "600" src = "../assets/Audit_Diagram_Dark.svg"/>
-  <img v-else height = "300px" width = "600" src = "../assets/Audit_Diagram_Light.svg" />
+  <img v-if="isDark" width = "400" src = "../assets/Audit_Diagram_Dark.svg"/>
+  <img v-else width = "400" src = "../assets/Audit_Diagram_Light.svg" />
 </div>
 
 ### Note on `user_id`:
 
-The `user_id` column in each audit entry provides information about the user responsible for a change within an object. This column is populated when a user signs in and is typically filled in for all audit entries. However, there's a specific scenario where the `user_id` is left blank – when a user accepts an invitation. This behavior is due to the fact that accepting an invitation doesn't require a user to sign in or undergo authentication. 
+The `user_id` column in each audit entry provides information about the user responsible for a change. This column is populated when a user signs in and is typically filled in for all audit entries. However, there's a specific scenario where the `user_id` is left blank – when a user accepts an invitation. This behavior is due to the fact that accepting an invitation doesn't require a user to sign in or undergo authentication. 
 
 To uncover the `user_id` associated with an accepted invitation, we recommend identifying the audit entry linked to the creation of an `OrgRole`. You can pinpoint this entry by looking for a blank or null `user_id`, along with the `CREATE` value in the `action` column and the `OrgRole` value in `autible_type` column. Once you've located this entry, a quick check of the `audit_changes` column will unveil the `user_id` of the user who accepted the organization invitation
 
