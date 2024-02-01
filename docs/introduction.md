@@ -1,6 +1,6 @@
 # Introduction
 
-TrivialJS is an event-drive business rule manager for non-technical users. It provides an If/Then editing interface to generate NodeJS event-processor applications within safe parameters.
+TrivialJS is an event-driven business rule manager for non-technical users. It provides an If/Then editing interface to generate NodeJS event-processor applications within safe parameters.
 
 A hosted instance is available at [trivialapps.io](https://www.trivialapps.io).
 
