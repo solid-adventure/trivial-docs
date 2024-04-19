@@ -7,8 +7,8 @@ export default defineConfig({
   themeConfig: {
     // https://vitepress.dev/reference/default-theme-config
     logo: {
-      light: '../assets/trivial-logo-on-light.svg',
-      dark: '../assets/trivial-logo-on-dark.svg'
+      light: '/trivial-logo-on-light.svg',
+      dark: '/trivial-logo-on-dark.svg'
     },
     siteTitle: false,
     nav: [
