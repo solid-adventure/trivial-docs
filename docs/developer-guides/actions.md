@@ -53,3 +53,6 @@ If no editorComponent is set, a single-line `CodeCompletingInput` component will
 
 ### Creating EditorComponents
 EditorComponents can be found in `/components/builderv2/transform-editors`. Clone an existing editor, and add it to `/components/builderv2/transform-editors/index.js` to make it available to your actions.
+
+### Conditional Actions
+Actions can include a condition to determine if they should be run. See [Conditional Actions](/developer-guides/conditional-actions) for more information.

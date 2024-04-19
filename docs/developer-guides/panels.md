@@ -2,13 +2,17 @@
 
 Panels are Vue components that render inside a dashboard container. During render, they automically fetch data from the Trivial app of their same name.
 
+::: warning Deprecated
+
+Dashboard Panels have been depreceated in favor of `Registers` .
+Registers include their own UI components, and require less configuration to add to the dashboard.
+
+:::
 
 ### Creating Panels
 1. Copy /source/components/PanelTemplate.vue into a new file in `/source/components/panels/`. We'll call our new panel `SpacedGrid.vue`
 
-::: tip
-TODO: Create PanelTemplate.vue
-:::
+
 
 2. In the `handleResponse` method, update the list of attributes the panel should ingest from the response body. Here we're expecting `names` and `rows` attributes:
 :
