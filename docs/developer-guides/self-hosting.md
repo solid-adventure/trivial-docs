@@ -1,6 +1,6 @@
 # Self-Hosting
 
-Trivial can be self-hosted and is available as open source software. There are four repositories that make up Trivial, the ReadMe in each repo is best resource for setting up each component. The easiest place to get started is with trivial-ui, using the [cloud staging API](/developer-guides/cloud-staging-api).
+Trivial is available as open source software and can be self-hosted. There are four repositories that make up Trivial; the ReadMe in each repo is best resource for setting up each component. The easiest place to get started is with trivial-ui, using the [cloud staging API](/developer-guides/cloud-staging-api).
 
 
 

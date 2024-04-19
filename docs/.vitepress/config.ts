@@ -60,6 +60,7 @@ export default defineConfig({
           { text: 'Passwords', link: 'developer-guides/passwords'},
           { text: 'Permissions', link: '/developer-guides/permissions' },
           { text: 'Registers', link: '/developer-guides/registers' },
+          { text: 'Self Hosting', link: '/developer-guides/self-hosting' },
         ]
       }
     ],
