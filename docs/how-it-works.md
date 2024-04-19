@@ -5,7 +5,7 @@ Trivial sits between your sales platforms and your accounting system, and automa
 
 
 <div align = "center">
-  <img height = "400" width = "800" src = "../assets/sales-etl.png" />
+  <img height = "400" width = "800" src = "./assets/sales-etl.png" />
 </div>
 
 There are 3 steps:
