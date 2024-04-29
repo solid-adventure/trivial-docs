@@ -61,6 +61,7 @@ export default defineConfig({
           { text: 'Permissions', link: '/developer-guides/permissions' },
           { text: 'Registers', link: '/developer-guides/registers' },
           { text: 'Self Hosting', link: '/developer-guides/self-hosting' },
+          { text: 'Version Control Strategy', link: '/developer-guides/version-control-strategy'}
         ]
       }
     ],
