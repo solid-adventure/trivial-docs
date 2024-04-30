@@ -35,7 +35,7 @@ git commit -m 'specific verified change'
 - Avoid mixing whitespace/style and functional changes into a single commit branch. Group all white space changes into a specific commit when they are necessitated
 
 ::: warning
-COMMIT SQUASHING CANNOT BE REVERTED DO NOT LEAVE TYPO OR FIX COMMITS UNSQUASHED
+Commit squashing cannot be reverted. Do not leave typo or fix commits unsquashed.
 :::
 
 ```
