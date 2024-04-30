@@ -79,7 +79,7 @@ Continue to group, reorder, and squash commits from recommended changes
 
 - Ensure that all commits have been properly grouped and squashed
 
-- Aim for a minimal (ideally 1) number of commits which each summerize a functional group of changes
+- Aim for a minimal (ideally 1) number of commits which each summarize a functional group of changes
 
 ## 9. Make a Final Review of the PR
 - This review should be a skim that checks no functional changes were introduced during linting
