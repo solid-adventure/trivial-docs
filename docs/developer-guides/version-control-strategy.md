@@ -30,11 +30,9 @@ git commit -m 'specific verified change'
 ```
 **Commit Strategy**
 
-Follow a squashing commit strategy that groups commits by larger ideas as changes are verified.
+- Follow a squashing commit strategy that groups commits by larger ideas as changes are verified. Find a balance of readable commits that group more specific changes into larger ideas
 
-Find a balance of readable commits that group more specific changes into larger ideas voiding mixing whitespace/style and functional changes into a single commit branch.
-
-Group all white space changes into a specific commit when they are necessitated.
+- Avoid mixing whitespace/style and functional changes into a single commit branch. Group all white space changes into a specific commit when they are necessitated
 
 ::: warning
 COMMIT SQUASHING CANNOT BE REVERTED DO NOT LEAVE TYPO OR FIX COMMITS UNSQUASHED
@@ -52,41 +50,41 @@ Ex.
 git push origin feature/contract-function-grouping 
 ```
 However, pushing squashed commits that have previously been pushed will require
-force-pushing. Please attempt to minimize this by squashing before pushing commits.
+force-pushing. Please attempt to minimize this by squashing before pushing commits
 ```
 git push -f origin update/improved-email-templates 
 ```
 ## 5. Open a PR titled with the branch name.
 
-Always provide at least a minimal description of the changes and additions implemented.
+- Always provide at least a minimal description of the changes and additions implemented
 
-Add initial labels for easier parsing.
+- Add initial labels for easier parsing
 
-Leave all PRs as Draft PRs until they are fully finished.
+- Leave all PRs as Draft PRs until they are fully finished
 
-Tag the reviewer and mark PRs when ready for review.
+- Tag the reviewer and mark PRs when ready for review
 
 ## 6. Review the PR 
-All PRs must be reviewed by a non-author reviewer.
+- All PRs must be reviewed by a non-author reviewer
 
-Reviews should primarily cover function, edge case precautions, and general code safety.
+- Reviews should primarily cover function, edge case precautions, and general code safety
 
 ## 7. Implement recommended changes 
-Continue to group, reorder, and squash commits from recommended changes.
+Continue to group, reorder, and squash commits from recommended changes
 
 ## 8. Make a Final Lint of the reviewed PR 
-Linting should not introduce any functional changes.
+- Linting should not introduce any functional changes
 
-Use the recommended linter where applicable.
+- Use the recommended linter where applicable
 
-Ensure that all commits have been properly grouped and squashed.
+- Ensure that all commits have been properly grouped and squashed
 
-Aim for a minimal (ideally 1) number of commits which each summerize a functional group of changes.
+- Aim for a minimal (ideally 1) number of commits which each summerize a functional group of changes
 
 ## 9. Make a Final Review of the PR
-This review should be a skim that checks no functional changes were introduced during linting.
+- This review should be a skim that checks no functional changes were introduced during linting
 
-Ensure that the PR has a summary description of changes.
+- Ensure that the PR has a summary description of changes
 
 ## 10. Approve and Merge the PR 
 
