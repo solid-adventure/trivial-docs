@@ -1,5 +1,20 @@
 # Getting Started
 
-The fastest way to get started is to clone the [trivial-ui](https://github.com/solid-adventure/trivial-ui) Vue project, which will provide a UI for editing rules and deploying event processors.
+We've made it easy to get started with Trivial. Here's how:
 
-Detailed instructions are provided in the Readme.
+
+1. Sign up for a free account at [trivialapps.io](https://www.trivialapps.io/register).
+
+2. Connect a sales channel (Shopify, Square, etc.) or upload a CSV.
+
+3. Review your sales and re-run the importer as many times as you like to customize how fields import.
+
+4. Map your sales data to your accounting system and schedule imports.
+
+:::tip There is Currently a Waitlist for Signup
+
+Trivial is currently in a closed beta. If you would like to participate, please reach out to us at [sales@withtrivial.com](mailto:sales@withtrivial.com?subject=Request%20for%20Beta%20Access).
+
+We're excited to hear from you and hear how you would put Trivial to work!
+
+:::

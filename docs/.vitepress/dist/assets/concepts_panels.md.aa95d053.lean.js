@@ -1,1 +1,0 @@
-import{_ as s,o as a,c as n,O as l}from"./chunks/framework.6d829df7.js";const d=JSON.parse('{"title":"Panels","description":"","frontmatter":{},"headers":[],"relativePath":"concepts/panels.md"}'),o={name:"concepts/panels.md"},p=l("",18),e=[p];function t(c,r,y,F,D,i){return a(),n("div",null,e)}const A=s(o,[["render",t]]);export{d as __pageData,A as default};
