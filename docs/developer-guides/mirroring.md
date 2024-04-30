@@ -1,4 +1,4 @@
-# Mirroring
+# Mirroring Repositories
 
 ## 1. Mirror the code branch to other repositories
 

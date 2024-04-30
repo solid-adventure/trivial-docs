@@ -91,7 +91,7 @@ Once approved, the author is responsible for merging the PR and coordinating mir
 
 ## 11. Mirror to any applicable private repos as needed
 
-See dedicated [page for mirroring](./mirroring.md)
+See dedicated [page for mirroring repositories](./mirroring.md)
 
 ## Troubleshooting
 If you find yourself in a rebase and aborting isn’t sufficient, you can use [reflog](https://stackoverflow.com/a/135614/834094

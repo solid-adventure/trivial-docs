@@ -66,7 +66,7 @@ export default defineConfig({
             link: '/developer-guides/version-control-strategy',
             items: [
               {
-                text: 'Mirroring',
+                text: 'Mirroring Repos',
                 link: '/developer-guides/mirroring'
               }
 
