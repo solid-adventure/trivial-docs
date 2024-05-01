@@ -13,7 +13,7 @@ A Bearer token is the only form of aunthentication needed to make valid API requ
 1. Send a `POST` request to `/auth/sign_in` endpoint.
 2. If successfully signed in, retreive Bearer Token from response header.
 
-The following cURL command be used to locate the Bearer token:
+Assuming the API is running on port 3000, the following cURL command be used to locate the Bearer token:
 
 :::code-group
 ```cURL [Request]
