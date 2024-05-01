@@ -29,7 +29,7 @@ Registers have `amount`, `description`, and `units` columns by default, so we on
 
 
 ### Adding Items to a Register
-You can add items to a register with a POST call to the `/registers/:register_id/register_items` endpoint. The body of the request should contain the data for the item you want to add to the register.
+You can add items to a register with a POST call to the `/register_items/?register_id=:register_id` endpoint. The body of the request should contain the data for the item you want to add to the register.
 
 The meta columns can be sent directly by their name:
 
