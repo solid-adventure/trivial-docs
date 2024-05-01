@@ -55,6 +55,7 @@ export default defineConfig({
           { text: 'Client API Keys', link: '/developer-guides/client-api-keys' },
           { text: 'Cloud Staging API', link:'/developer-guides/cloud-staging-api'},
           { text: 'Conditional Actions', link: '/developer-guides/conditional-actions' },
+          { text: 'Making Requests', link: 'developer-guides/requests', },
           { text: 'Organizations', link: '/developer-guides/organizations' },
           { text: 'Panels', link: '/developer-guides/panels' },
           { text: 'Passwords', link: 'developer-guides/passwords'},
