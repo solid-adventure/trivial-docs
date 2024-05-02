@@ -5,14 +5,26 @@ const { isDark } = useData()
 
 # Audits 
 
-Trivial-API leverages the [Audited gem](https://github.com/collectiveidea/audited) to log and monitor alterations across models. Any Create, Delete, or Update actions performed on Objects are documented within the `audits` table.
+Trivial-API leverages the [Audited gem](https://github.com/collectiveidea/audited) to log and monitor alterations across models. These alterations are logged into a dedicated `audits` table.
 
-## Audits Diagram
+## Audits Overview
 
-<div>
-  <img v-if="isDark" width = "400" src = "../assets/Audit_Diagram_Dark.svg"/>
-  <img v-else width = "400" src = "../assets/Audit_Diagram_Light.svg" />
-</div>
+### Actions Tracked
+Any `Create`, `Delete`, or `Update` actions performed on objects from the models tracked are documented within the audits table.
+
+### Models Tracked
+Changes made to objects with the following models are monitored:
+- **App**
+- **User**
+- **Manifest**
+- **Manifest Draft**
+- **Org Role**
+- **Permission**
+- **Credential Sets**
+- **Tags**
+
+### Models Not Tracked
+Changes made to objects within an activity entry model are not monitored.
 
 ### Note on `user_id`:
 
