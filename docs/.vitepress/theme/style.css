@@ -51,6 +51,10 @@
     #47caff 50%
   );
   --vp-home-hero-image-filter: blur(40px);
+  
+  .icon{
+    color: var(--vp-c-brand);
+  }
 }
 
 @media (min-width: 640px) {
