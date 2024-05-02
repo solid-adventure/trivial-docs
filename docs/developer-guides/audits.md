@@ -15,13 +15,14 @@ Any `Create`, `Delete`, or `Update` actions performed on objects from the models
 ### Models Tracked
 Changes made to objects with the following models are monitored:
 - **App**
-- **User**
+- **Credential Sets**
 - **Manifest**
 - **Manifest Draft**
+- **Organization**
 - **Org Role**
 - **Permission**
-- **Credential Sets**
 - **Tags**
+- **User**
 
 ### Models Not Tracked
 Changes made to objects within an activity entry model are not monitored.
