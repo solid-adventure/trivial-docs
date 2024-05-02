@@ -52,6 +52,7 @@ export default defineConfig({
           { text: 'Actions', link: '/developer-guides/actions' },
           // { text: 'API Reference', link: '/api-reference'  },
           { text: 'App Tags', link: '/developer-guides/app-tags' },
+          { text: 'Audits', link: '/developer-guides/audits'},
           { text: 'Client API Keys', link: '/developer-guides/client-api-keys' },
           { text: 'Cloud Staging API', link:'/developer-guides/cloud-staging-api'},
           { text: 'Conditional Actions', link: '/developer-guides/conditional-actions' },
