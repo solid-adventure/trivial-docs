@@ -14,10 +14,14 @@ Assuming API is running on 3000, here is an example of an API call retreviing `i
 ::: code-group
 ``` javascript [Request]
 
-let end_at = new Date()
-let start_at = new Date()
-start_at.setYear('2020') 
-let register_id = 1
+                             // dates are required
+let end_at = new Date()      // For an example, we'll set our end_at date to now
+
+let start_at = new Date()    // And we'll set start_at a few years earlier 
+start_at.setYear('2019')
+
+let register_id = 1          // This is the ID of the register you want data on
+
 
 var data = await fetch("http://localhost:3000/reports/item_sum", {
 method: "POST",
@@ -37,6 +41,6 @@ body: JSON.stringify({
 { title: 'Sum', count: '6662.09' }
 ```
 
-::: tip The `register_ids` param is intended to be plural.
+::: tip The `register_ids` param is deliberately plural, and accepts an integer or array of integers.
 :::
 
