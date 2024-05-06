@@ -14,13 +14,18 @@ Assuming API is running on 3000, here is an example of an API call retreviing `i
 ::: code-group
 ``` javascript [Request]
 
-                             // dates are required
-let end_at = new Date()      // For an example, we'll set our end_at date to now
+// Dates are required
+// If register_ids is not provided, data for all registers will be returned
 
-let start_at = new Date()    // And we'll set start_at a few years earlier 
+// For an example, we'll set our end_at date to now
+let end_at = new Date()
+
+// And we'll set start_at a few years earlier 
+let start_at = new Date()
 start_at.setYear('2019')
 
-let register_id = 1          // This is the ID of the register you want data on
+// This is the ID of the register you want data on
+let register_id = 1
 
 
 var data = await fetch("http://localhost:3000/reports/item_sum", {
