@@ -27,16 +27,6 @@ hero:
 features:
   # - title: Scheduled Sync
   #   details: Import Sales from Shopify, Stripe, and more automatically, on a schedule that works for you.
-  - icon: <span class="pi pi-shopping-cart"></span>
-    title: Realtime Sales
-    details: Bring your sales data together in one place, and see your financials in real time.
-  - icon: <span class="pi pi-bullseye"></span>
-    title: Accurate
-    details: Automations that correctly allocate income and expenses- even "hidden" expenses like platform and credit card fees.
-  - icon: <span class="pi pi-shop"></span>
-    title: Built for Ecommerce
-    details: We understand multi-channel ecommerce, and have built Trivial to handle the unique challenges of online businesses.
-
   - icon: <iconify-icon icon="fa6-solid:cart-shopping"></iconify-icon>
     title: Realtime Sales
     details: Bring your sales data together in one place, and see your financials in real time.
@@ -49,7 +39,6 @@ features:
 ---
 
 <script setup>
-import 'primeicons/primeicons.css';
 import 'iconify-icon';
 </script>
 

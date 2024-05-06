@@ -6,7 +6,6 @@
   },
   "dependencies": {
     "iconify-icon": "^2.1.0",
-    "primeicons": "^7.0.0",
     "vue": "^3.2.47"
   },
   "devDependencies": {
