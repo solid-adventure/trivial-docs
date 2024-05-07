@@ -27,12 +27,18 @@ hero:
 features:
   # - title: Scheduled Sync
   #   details: Import Sales from Shopify, Stripe, and more automatically, on a schedule that works for you.
-  - title: Realtime Sales
+  - icon: <iconify-icon icon="fa6-solid:cart-shopping"></iconify-icon>
+    title: Realtime Sales
     details: Bring your sales data together in one place, and see your financials in real time.
-  - title: Accurate
+  - icon: <iconify-icon icon="fa6-solid:bullseye"></iconify-icon>
+    title: Accurate
     details: Automations that correctly allocate income and expenses- even "hidden" expenses like platform and credit card fees.
-  - title: Built for Ecommerce
+  - icon: <iconify-icon icon="fa6-solid:shop"></iconify-icon>
+    title: Built for Ecommerce
     details: We understand multi-channel ecommerce, and have built Trivial to handle the unique challenges of online businesses.
-
 ---
+
+<script setup>
+import 'iconify-icon';
+</script>
 
