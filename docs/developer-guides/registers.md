@@ -88,17 +88,10 @@ To do that, we can send an `originated_at` value, formatted as an ISO 8601 strin
 
 ### Sorting Data in a Register -->
 
-<!-- ### Searching Data in a Register
-Registers are searchable using stackable filters. Filters are applied to the register items, and can be used to find specific items based on the values in the columns.
+### Searching Register Items
+Items in a Register are searchable using stackable filters using Trivial's [standard search syntax](search).
 
 
-```json
-TODO This is a separate topic, and should have a simple example and then link to the main search page
-
-{}
-
-```
- -->
 <!-- ### Paginating Data in a Register -->
 
 ### Exporting from Registers
