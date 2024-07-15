@@ -8,7 +8,7 @@ This documentation provides a concise overview of the `Reports` endpoints and ex
 1. [Parameters](#parameters)
 2. [Endpoints](#endpoints)
 3. [Request Examples](#request-example)
-4. [Response Formats](#response-formats)
+4. [Response Format Examples](#response-format-examples)
 5. [Errors](#errors)
 
 ---
@@ -36,8 +36,6 @@ TZInfo::Timezone.all_identifiers
 Intl.supportedValuesOf('timeZone')
 ```
 - **group_by**: An array of meta-columns to group results by 
-:::warning Only one dimension of grouping is currently supported
-:::
 :::tip Valid meta-columns can be retrieved from a register's meta hash
 :::
 
@@ -116,14 +114,22 @@ var data = await fetch("http://localhost:3000/reports/item_sum", {
 
 ---
 
-## Response Formats
+## Response Format Examples
 
 ### Count, Sum, Average Reports
 
 The response will include the report title and the calculated count, sum, or average values. If grouping is applied, the results will be grouped accordingly.
 
 #### Response Example Without Grouping
-
+Request parameters: `POST reports/item_sum`
+```json
+{
+  "start_at": "2023-01-01T00:00:00-05:00",
+  "end_at": "2023-02-28T23:59:59-05:00",
+  "register_id": 1,
+}
+```
+Response:
 ```json [Sum, No Groups]
 {
   "title": "Sum",
@@ -131,14 +137,24 @@ The response will include the report title and the calculated count, sum, or ave
     {
       "period": "All",
       "group": "All",
-      "value": 100
+      "value": 9151.15
     }
   ]
 }
 ```
 
 #### Response Examples With Grouping
-
+Request parameters: `POST reports/item_count`
+```json
+{
+  "start_at": "2023-01-01T00:00:00-05:00",
+  "end_at": "2023-02-28T23:59:59-05:00",
+  "register_id": 1,
+  "group_by_period": "month",
+  "timezone": "America/Detroit",
+}
+```
+Response:
 ```json [Count, Group by Period]
 {
   "title": "Count by Month",
@@ -156,6 +172,16 @@ The response will include the report title and the calculated count, sum, or ave
   ]
 }
 ```
+Request parameters: `POST reports/item_sum`
+```json
+{
+  "start_at": "2023-01-01T00:00:00-05:00",
+  "end_at": "2023-02-28T23:59:59-05:00",
+  "register_id": 1,
+  "group_by": ["income_account"]
+}
+```
+Response:
 ```json [Sum, Group by Column]
 {
   "title": "Sum by Income Account",
@@ -163,11 +189,28 @@ The response will include the report title and the calculated count, sum, or ave
     {
       "period": "All",
       "group": "b2b shipping",
+      "value": 2880.75
+    },
+    {
+      "period": "All",
+      "group": "wholesale",
       "value": 6270.4
     }
   ]
 }
 ```
+Request parameters: `POST reports/item_average`
+```json
+{
+  "start_at": "2023-01-01T00:00:00-05:00",
+  "end_at": "2023-02-28T23:59:59-05:00",
+  "register_id": 1,
+  "group_by_period": "month",
+  "timezone": "America/Detroit",
+  "group_by": ["income_account"]
+}
+```
+Response:
 ```json [Average, Group by Period and Column]
 {
   "title": "Average by Month and Income Account",
@@ -180,7 +223,76 @@ The response will include the report title and the calculated count, sum, or ave
     {
       "period": "Feb 2024",
       "group": "b2b shipping",
-      "value": 10.10
+      "value": 10.1
+    },
+        {
+      "period": "Jan 2024",
+      "group": "wholesale",
+      "value": 6.7
+    },
+    {
+      "period": "Feb 2024",
+      "group": "wholesale",
+      "value": 8.22
+    }
+  ]
+}
+```
+Request parameters: `POST reports/item_count`
+```json
+{
+  "start_at": "2023-01-01T00:00:00-05:00",
+  "end_at": "2023-02-28T23:59:59-05:00",
+  "register_id": 1,
+  "group_by_period": "month",
+  "timezone": "America/Detroit",
+  "group_by": ["income_account", "warehouse"]
+}
+```
+Response:
+```json [Average, Group by Period and Column]
+{
+  "title": "Count by Month and Income Account, Warehouse",
+  "count": [
+    {
+      "period": "Jan 2024",
+      "group": ["b2b shipping", "ann_arbor"],
+      "value": 10
+    },
+    {
+      "period": "Feb 2024",
+      "group": ["b2b shipping", "ann_arbor"],
+      "value": 20
+    },
+        {
+      "period": "Jan 2024",
+      "group": ["b2b shipping", "new_york"],
+      "value": 12
+    },
+    {
+      "period": "Feb 2024",
+      "group": ["b2b shipping", "new_york"],
+      "value": 16
+    },
+    {
+      "period": "Jan 2024",
+      "group": ["warehouse", "ann_arbor"],
+      "value": 7
+    },
+    {
+      "period": "Feb 2024",
+      "group": ["warehouse", "ann_arbor"],
+      "value": 13
+    },
+        {
+      "period": "Jan 2024",
+      "group": ["warehouse", "new_york"],
+      "value": 11
+    },
+    {
+      "period": "Feb 2024",
+      "group": ["warehouse", "new_york"],
+      "value": 12
     }
   ]
 }
@@ -192,11 +304,12 @@ The response will include the report title and the calculated count, sum, or ave
 
 ### Common Errors
 
-- **Invalid start_at**: The `start_at` parameter is missing or in an incorrect format.
-- **Invalid end_at**: The `end_at` parameter is missing or in an incorrect format.
+- **Invalid invalid xmlschema format**: The `start_at` or `end_at` parameter is missing or not iso8601 format.
+- **start_at must be earlier than end_at**: The `start_at` parameter is invalid due to being later than `end_at`.
+- **Invalid invalid timezone**: The `timezone` parameter is missing or invalid.
+- **timezone mismatched from time range timezones**: The `timezone` provided does not match the timezone of `start_at` or `end_at`.
 - **Invalid register_id**: The `register_id` parameter is missing or does not correspond to an existing register.
-- **Invalid group_by_period**: The `group_by_period` parameter is invalid.
-- **Grouping by multiple dimensions is not yet supported**: More than one column is specified in the `group_by` array.
+- **Invalid group by period**: The `group_by_period` parameter is invalid.
 - **Invalid group_by**: The specified column in `group_by` is not a valid meta-column for the register.
 
 ### Error Response Example
