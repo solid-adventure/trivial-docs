@@ -1,7 +1,7 @@
 # Dashboards
 
-Trivial 'Dashboards' provide a way to group and display different 'Reports' data through associated 'Charts'.
-This documentation provides a concise overview of the `Dashboards` endpoints and explains how to interact with the API, required parameters, potential errors, and response formats.
+Trivial `Dashboards` provide a way to group and display different `Reports` data through associated `Charts`.
+This documentation provides an overview of the `Dashboards` endpoints and explains how to interact with the API, required parameters, potential errors, and response formats.
 
 ## Table of Contents
 
@@ -18,20 +18,20 @@ This documentation provides a concise overview of the `Dashboards` endpoints and
 ### Required Parameters
 
 #### Create
-:::warn Only 'Organization' type owners are currently supported
+:::warning Only 'Organization' type owners are currently supported
 :::
-- **`owner_type`: String** The internal object type of the owner
-- **`owner_id`: Integer** The internal id of the owner object
-- **`name`: String** A name for the dashboard
+- **`owner_type` :String**, The internal object type of the owner
+- **`owner_id` :Integer**, The internal id of the owner object
+- **`name` :String**, A name for the dashboard. Must be unique among dashboards with this owner.
 
 ### Optional Parameters
 
 #### Create
-- `dashboard_type`: String, automatically set to 'default' when no parameter is passed
+- **`dashboard_type` :String**, automatically set to `default` when no parameter is passed
 
 #### Update
-- `name`: String
-- `dashboard_type`: String
+- **`name` :String**
+- **`dashboard_type` :String**
 :::info A Dashboard's owner can only be changed through the permissions API
 :::
 
@@ -54,7 +54,7 @@ This documentation provides a concise overview of the `Dashboards` endpoints and
 {
   "dashboard": {
     "name": "Updated Dashboard",
-    "dashboard_type": "type2"
+    "dashboard_type": "new_type"
   }
 }
 ```
@@ -130,6 +130,7 @@ var data = await fetch(`http://localhost:3000/dashboards/${dashboard_id}`, {
 #### Create Dashboard
 ```javascript
 let owner_id = currentOrganization.id // use the id of the desired organization
+let dashboard_name = setDashboardName // get a name for the dashboard from the user
 
 var data = await fetch("http://localhost:3000/dashboards", {
   method: "POST",
@@ -168,6 +169,10 @@ var data = await fetch("http://localhost:3000/dashboards", {
           "chart_type": "table",
           "color_scheme": "default",
           "report_period":"month",
+          "report_groups": {
+            "income_account": true,
+            "customer_id": false
+          }
         },
         ...
       ]
@@ -195,6 +200,10 @@ var data = await fetch("http://localhost:3000/dashboards", {
         "chart_type": "table",
         "color_scheme": "default",
         "report_period":"month",
+        "report_groups": {
+          "income_account": true,
+          "customer_id": false
+        }
       },
       ...
     ]

@@ -1,7 +1,7 @@
 # Charts
 
-Trivial 'Charts' provide a way to store settings for 'Reports' data associated with 'Charts'.
-This documentation provides a concise overview of the `Charts` endpoints and explains how to interact with the API, required parameters, potential errors, and response formats.
+Trivial `Charts` provide a way to store settings for `Reports` data associated with `Charts`.
+This documentation provides an overview of the `Charts` endpoints and explains how to interact with the API, required parameters, potential errors, and response formats.
 
 ## Table of Contents
 
@@ -17,15 +17,19 @@ This documentation provides a concise overview of the `Charts` endpoints and exp
 
 ### Required Parameters
 
-- **`register_id`: Integer** The id of the register used for this chart's report
-- **`name`: String** The name of this chart
-- **`report_period`: String** The `group_by_period` parameter to use for this chart's report
+- **`register_id` :Integer** The id of the register used for this chart's report.
+- **`name` :String** The name of this chart. Must be unique for all charts within a dashboard.
+- **`report_period` :String** The `group_by_period` parameter to use for this chart's report.
+:::info Supported values of report_period are currently: `day`, `week`, `month`, `quarter`, and `year`
+:::
 
 ### Optional Parameters
 
-- **`chart_type`: String** The type of the chart such as 'table', 'heatmap', 'line_graph', etc.
-- **`color_scheme`: String** The color scheme of the chart such as 'default, 'trivial-dark, etc.
-- **`report_groups`: Object** The meta-columns to use as `group_by` parameters for the chart's report
+- **`chart_type` :String** The type of the chart.
+- **`color_scheme` :String** The color scheme of the chart such as 'default, 'trivial-dark, etc.
+- **`report_groups` :Object** The meta-columns to use as `group_by` parameters for the chart's report.
+:::info `report_groups` fields are aliases for the meta-columns of a `Register`. Alias mapping is done internally
+:::
 
 ### Parameters Example
 
@@ -34,7 +38,7 @@ This documentation provides a concise overview of the `Charts` endpoints and exp
 {
   "register_id": 1,
   "name": "New Chart",
-  "report_period": "weekly",
+  "report_period": "week",
 }
 ```
 
@@ -46,8 +50,9 @@ This documentation provides a concise overview of the `Charts` endpoints and exp
   "color_scheme": "brand_core",
   "report_period": "year",
   "report_groups": {
-    "group1": true,
-    "group2": true
+    "customer_id": false,
+    "income_account": true,
+    "warehouse": true
   }
 }
 ```
@@ -101,12 +106,12 @@ curl -X POST http://yourapiurl.com/dashboards/1/charts \
   --data-raw '{
     "register_id": 1,
     "name": "New Chart",
-    "chart_type": "line",
-    "color_scheme": "blue",
-    "report_period": "weekly",
+    "chart_type": "line_graph",
+    "color_scheme": "trivial-dark",
+    "report_period": "week",
     "report_groups": {
-      "group1": true,
-      "group2": false
+      "income_account": true,
+      "warehouse": false
     }
   }'
 ```
@@ -125,13 +130,13 @@ var data = await fetch(`http://localhost:3000/dashboards/${dashboard_id}/charts`
 }).then((response) => response.json())
 ```
 
-#### Create Chart
+#### Create a Chart
 ```javascript
 let dashboard_id = currentOrganization.dashboards[0].id // supply a dashboard_id for the dashboard you want
 let chart_name = setChartName // get a title for the chart from the user
 let chart_type = setChartType // select a chart type like 'table', 'line_graph', etc.
 let report_period = setReportPeriod // select a report period
-let report_groups = selectedReportGroups // exampled: { income_account: true, warehouse: true, customer_id: false }
+let report_groups = selectedReportGroups // example: { income_account: true, warehouse: true, customer_id: false }
 
 var data = await fetch(`http://localhost:3000/dashboards/${dashboard_id}/charts`, {
   method: "PUT",
@@ -145,11 +150,7 @@ var data = await fetch(`http://localhost:3000/dashboards/${dashboard_id}/charts`
       name: chart_name,
       chart_type: chart_type,
       report_period: report_period,
-      report_groups: {
-        customer_id: false,
-        income_account: true,
-        warehouse: true
-      }
+      report_groups: report_groups
     }
   })
 }).then((response) => response.json())
@@ -181,15 +182,15 @@ var data = await fetch(`http://localhost:3000/dashboards/${dashboard_id}/charts`
 }
 ```
 
-### Get Single Chart
+### Get a Single Chart
 ```json
 {
   "chart": {
     "id": 1,
     "dashboard_id": 1,
     "register_id": 1,
-    "name": "Marginal Income",
-    "chart_type": "line_graph",
+    "name": "Income By Location",
+    "chart_type": "data_map",
     "color_scheme": "default",
     "report_period": "day",
     "report_groups": {
@@ -205,6 +206,15 @@ var data = await fetch(`http://localhost:3000/dashboards/${dashboard_id}/charts`
 ## Errors
 
 ### Common Errors
+
+- **422 Unprocessable Content**
+  - **Description:** A parameter for updating or creating a chart was invalid.
+  - **Response:**
+    ```json
+    {
+      "error": "Only Organization owned Dashboards are currently supported"
+    }
+    ```
 
 - **404 Not Found**
   - **Description:** Nonexistent chart.
