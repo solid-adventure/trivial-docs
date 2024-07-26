@@ -18,7 +18,7 @@ This documentation provides an overview of the `Dashboards` endpoints and explai
 ### Required Parameters
 
 #### Create
-:::warning Only 'Organization' type owners are currently supported
+:::warning Only `Organization` type owners are currently supported
 :::
 - **`owner_type` :String**, The internal object type of the owner
 - **`owner_id` :Integer**, The internal id of the owner object
