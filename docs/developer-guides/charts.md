@@ -212,7 +212,7 @@ var data = await fetch(`http://localhost:3000/dashboards/${dashboard_id}/charts`
   - **Response:**
     ```json
     {
-      "error": "Only Organization owned Dashboards are currently supported"
+      "error": "millisecond is not a valid report period"
     }
     ```
 

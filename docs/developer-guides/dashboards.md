@@ -216,6 +216,15 @@ var data = await fetch("http://localhost:3000/dashboards", {
 ## Errors
 
 ### Common Errors
+- **422 Unprocessable Content**
+  - **Description:** A parameter for updating or creating a chart was invalid.
+  - **Response:**
+    ```json
+    {
+      "error": "Only Organization owned Dashboards are currently supported"
+    }
+    ```
+
 
 - **404 Not Found**
   - **Description:** Nonexistent dashboard.
