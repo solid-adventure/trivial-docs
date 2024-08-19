@@ -67,7 +67,7 @@ This documentation provides an overview of the `Charts` endpoints and explains h
   - **Description:** Retrieve a list of all charts for a specific dashboard.
 
 - **Get Single Chart**
-  - **URL:** `/charts/:id`
+  - **URL:** `/dashboards/:dashboard_id/charts/:id`
   - **Method:** `GET`
   - **Description:** Retrieve details of a single chart.
 
@@ -77,12 +77,12 @@ This documentation provides an overview of the `Charts` endpoints and explains h
   - **Description:** Create a new chart under a specific dashboard.
 
 - **Update Chart**
-  - **URL:** `/charts/:id`
+  - **URL:** `/dashboards/:dashboard_id/charts/:id`
   - **Method:** `PUT`
   - **Description:** Update an existing chart.
 
 - **Delete Chart**
-  - **URL:** `/charts/:id`
+  - **URL:** `/dashboards/:dashboard_id/charts/:id`
   - **Method:** `DELETE`
   - **Description:** Delete a chart.
 
