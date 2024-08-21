@@ -25,10 +25,18 @@ This documentation provides an overview of the `Charts` endpoints and explains h
 
 ### Optional Parameters
 
-- **`chart_type` :String** The type of the chart.
+- **`chart_type` :String** The type of the chart. Defaults to 'table'
+:::info default is `table`
+:::
 - **`color_scheme` :String** The color scheme of the chart such as 'default, 'trivial-dark, etc.
+:::info default is `default`
+:::
+- **`invert_sign` :Boolean** If true, all amounts for this chart are multiplied by -1
+:::info default is `false`
+:::
 - **`report_groups` :Object** The meta-columns to use as `group_by` parameters for the chart's report.
 :::info `report_groups` fields are aliases for the meta-columns of a `Register`. Alias mapping is done internally
+default is all of the register's meta-columns set to `false`
 :::
 
 ### Parameters Example
@@ -48,6 +56,7 @@ This documentation provides an overview of the `Charts` endpoints and explains h
   "name": "Updated Chart",
   "chart_type": "table",
   "color_scheme": "brand_core",
+  "invert_sign": false,
   "report_period": "year",
   "report_groups": {
     "customer_id": false,
@@ -108,6 +117,7 @@ curl -X POST http://yourapiurl.com/dashboards/1/charts \
     "name": "New Chart",
     "chart_type": "line_graph",
     "color_scheme": "trivial-dark",
+    "invert_sign": "true",
     "report_period": "week",
     "report_groups": {
       "income_account": true,
@@ -120,7 +130,7 @@ curl -X POST http://yourapiurl.com/dashboards/1/charts \
 
 #### Get All Charts for a Dashboard
 ```javascript
-let dashboard_id = currentOrganization.dashboards[0].id // supply a dashboard_id for the dashboard you want
+let dashboard_id = 1 // supply a dashboard_id for the dashboard you want
 
 var data = await fetch(`http://localhost:3000/dashboards/${dashboard_id}/charts`, {
   method: "GET",
@@ -132,11 +142,13 @@ var data = await fetch(`http://localhost:3000/dashboards/${dashboard_id}/charts`
 
 #### Create a Chart
 ```javascript
-let dashboard_id = currentOrganization.dashboards[0].id // supply a dashboard_id for the dashboard you want
-let chart_name = setChartName // get a title for the chart from the user
-let chart_type = setChartType // select a chart type like 'table', 'line_graph', etc.
-let report_period = setReportPeriod // select a report period
-let report_groups = selectedReportGroups // example: { income_account: true, warehouse: true, customer_id: false }
+let dashboard_id = 1 // supply a dashboard_id for the dashboard you want
+let register_id = 42 // supply a register_id to use for this chart's report
+let chart_name = 'Example Chart' // set a title for the chart
+let chart_type = 'heat_map' // set a chart type like 'table', 'line_graph', etc.
+let invert_sign = true // true or false, if true all amounts for this chart will be multiplied by -1
+let report_period = 'year' // set a report period
+let report_groups = { income_account: true, warehouse: true, customer_id: false } // report_group labels must match the register's meta-columns
 
 var data = await fetch(`http://localhost:3000/dashboards/${dashboard_id}/charts`, {
   method: "PUT",
@@ -146,9 +158,10 @@ var data = await fetch(`http://localhost:3000/dashboards/${dashboard_id}/charts`
   },
   body: JSON.stringify({
     chart: {
-      register_id: 1,
+      register_id: register_id,
       name: chart_name,
       chart_type: chart_type,
+      invert_sign: invert_sign,
       report_period: report_period,
       report_groups: report_groups
     }
@@ -171,6 +184,7 @@ var data = await fetch(`http://localhost:3000/dashboards/${dashboard_id}/charts`
       "name": "Gross Revenue",
       "chart_type": "table",
       "color_scheme": "default",
+      "invert_sign": true,
       "report_period": "month",
       "report_groups": {
         "income_account": true,
@@ -192,6 +206,7 @@ var data = await fetch(`http://localhost:3000/dashboards/${dashboard_id}/charts`
     "name": "Income By Location",
     "chart_type": "data_map",
     "color_scheme": "default",
+    "invert_sign": false,
     "report_period": "day",
     "report_groups": {
       "income_account": true,
