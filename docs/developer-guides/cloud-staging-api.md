@@ -10,10 +10,13 @@ The easiest way to test that your trivial-ui install is working correctly is to 
 
 To run <strong>trivial-ui</strong> locally against the cloud staging API:
 
-1. Register for an account on the [cloud staging site](https://www.staging.trivialapps.io/register?enableFeatures=registration). This is the user and password you'll use locally. Password reset and invitations emails work on staging, making it preferable to use the staging UI for account management.
+1. Register for an account on the [cloud staging site](https://www.staging.trivialapps.io/register?enableFeatures=registration). This is the user and password you'll use locally. Password reset and invitations emails work on staging, making it preferable to use the cloud staging site instead of your local install for account management.
 
 
-2. In your .env file in <strong>trivial-ui</strong>, add or uncomment the following:
+2. Download the trivial-ui [repository](https://github.com/solid-adventure/trivial-ui) and follow the instructions in the readme.
+
+
+3. In your .env file in <strong>trivial-ui</strong>, add or uncomment the following:
 :::code-group
 ```YAML [.env]
 
@@ -22,17 +25,10 @@ VITE_TRIVIAL_API_URL = https://trivial-api-staging.herokuapp.com
 ```
 :::
 
-Once the env variable is added, restart your local trivial-ui. For more about the env file, please refer to the trivial-ui [repository](https://github.com/solid-adventure/trivial-ui).
+4. Start your local trivial-ui by running `npm run dev`. For more about the env file, please refer to the trivial-ui [repository](https://github.com/solid-adventure/trivial-ui).
 
-2. At this stage, the UI should present the login screen, but all API calls will fail (i.e., you can't login). If you look in the browser console, you'll see CORS errors. To work around this, start a special Chrome instance with security and personalization features disabled.
 
-On Mac:
+5. Trivial UI should now be running against the staging API at http://localhost:5173/
 
-```
 
-/Applications/Google\ Chrome.app/Contents/MacOS/Google\ Chrome --disable-web-security --user-data-dir="/var/tmp/Chrome"
-
-```
-
-3. You should now be able to login at the address logged by Vite, using your user/password from Step 1, typically http://localhost:5173/
-
+The staging API accepts CORS requests from common Vite ports 5173 and 4173, but blocks browser requests from other ports.

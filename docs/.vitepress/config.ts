@@ -13,7 +13,7 @@ export default defineConfig({
     siteTitle: false,
     nav: [
       { text: 'Use Cases', link: '/use-cases' },
-      { text: 'Features', link: '/features' },
+      // { text: 'Features', link: '/features' },
       { text: 'Login', link: 'https://www.trivialapps.io/login' },
       // { text: 'Pricing', link: '/pricing' },
       // {
@@ -31,7 +31,6 @@ export default defineConfig({
       {
         text: 'Overview',
         items: [
-          { text: 'Introduction', link: '/introduction'  },
           { text: 'How it Works', link: '/how-it-works'  },
           { text: 'Getting Started', link: '/getting-started'  },
           // { text: 'Pricing', link: '/pricing'  },
@@ -81,8 +80,8 @@ export default defineConfig({
       }
     ],
     footer: {
-      message: 'TrivialJS source code released under the MIT License. All rights to Trivial™ and TrivialJS™ trademarks reserved.',
-      copyright: 'Copyright © 2021-present Trivial, Inc.'
+      message: '<em style="font-size: 0.9em;">[0] Assuming manual invoices are sent on the 4th of each month, delivering on the 1st is 3 out of 4 days faster-- a 75% speed improvement.</em>',
+      copyright: 'Copyright © 2021-present Trivial, Inc. <br /> All rights to Trivial™ and TrivialJS™ trademarks reserved.'
     }
     // socialLinks: [
     //   { icon: 'github', link: 'https://github.com/vuejs/vitepress' }

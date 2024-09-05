@@ -3,42 +3,45 @@
 layout: home
 
 hero:
-  name: "Trivial"
-  # text: "Lightweight ETL for Accounting Ops"
-  # text: "Entering sales into your accounting system just got easy."
-  text: "Automate your bookkeeping"
-  # tagline: Open source, scalable, and easy to use.
-  tagline: "With Trivial, reporting sales is easy and accurate."
+  name: Trivial
+  text: "Optimize 3PL billing with data-driven efficiency. "
+  tagline: Trivial accelerates logistics invoicing by 75% through automated workflows–– improving cash flow and reducing errors.
   actions:
     - theme: brand
-      text: How it Works
+      text: Save my ops team hours every month
       link: /how-it-works
-    # - theme: alt
-    #   text: View on GitHub
-    #   link: https://github.com/solid-adventure/trivial-core
-    # - theme: alt
-    #   text: Scheduled Importers
-    #   link: /enterprise
-    # - theme: alt
-    #   text: Invoice Automation
-    #   link: /enterprise
 
 
 features:
-  # - title: Scheduled Sync
-  #   details: Import Sales from Shopify, Stripe, and more automatically, on a schedule that works for you.
-  - icon: <iconify-icon icon="fa6-solid:cart-shopping"></iconify-icon>
-    title: Realtime Sales
-    details: Bring your sales data together in one place, and see your financials in real time.
-  - icon: <iconify-icon icon="fa6-solid:bullseye"></iconify-icon>
-    title: Accurate
-    details: Automations that correctly allocate income and expenses- even "hidden" expenses like platform and credit card fees.
-  - icon: <iconify-icon icon="fa6-solid:shop"></iconify-icon>
-    title: Built for Ecommerce
-    details: We understand multi-channel ecommerce, and have built Trivial to handle the unique challenges of online businesses.
+  - icon: <iconify-icon icon="fa6-solid:file-invoice-dollar"></iconify-icon>
+    title: Logistics Billing Simplified
+    details: Streamline operations with automated workflows, customizable invoices, and integrated payment processing for 3PLs.
+  - icon: <iconify-icon icon="fa6-solid:money-bill-trend-up"></iconify-icon>
+    title: Real-Time Revenue Insights
+    details: Instantly aggregate and analyze revenue across multiple clients, services, and regions for comprehensive financial visibility.
+  - icon: <iconify-icon icon="fa6-solid:circle-check"></iconify-icon>
+    title: Stress-free Onboarding
+    details: Seamless data migration, customizable templates, and guided setup ensure a smooth transition to our 3PL billing platform.
 ---
+
+
 
 <script setup>
 import 'iconify-icon';
 </script>
 
+ <style>
+
+  iconify-icon {
+    font-size: 2.5rem;
+  }
+
+/*  @media (min-width: 960px) {*/
+/*    .container {*/
+/*      padding: 64px 64px;*/
+      /*padding:
+/*      calc(var(--vp-nav-height) + var(--vp-layout-top-height, 0px) + 80px) 64px 64px*/
+/*    }*/
+/*  }*/
+
+ </style>
