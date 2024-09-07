@@ -3,7 +3,22 @@ import { defineConfig } from 'vitepress'
 // https://vitepress.dev/reference/site-config
 export default defineConfig({
   title: "Trivial",
-  description: "Automate your Bookkeeping",
+  titleTemplate: "Data-Driven Ecommerce Ops",
+  description: "3PL billing automation with data-driven efficiency",
+  head: [
+    [
+      'script',
+      { async: '', src: 'https://www.googletagmanager.com/gtag/js?id=G-N3CYJ6RFDG' }
+    ],
+    [
+      'script',
+      {},
+      `window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-N3CYJ6RFDG');`
+    ]
+  ],
   themeConfig: {
     // https://vitepress.dev/reference/default-theme-config
     logo: {
