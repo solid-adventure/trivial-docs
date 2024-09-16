@@ -87,10 +87,6 @@ export default class BrandGame {
     this.gameLoop = null;
   }
 
-  // resumeGame(lowLevelThreshold, orderQuantity, retailCostPerUnit) {
-  //   this.startGame(lowLevelThreshold, orderQuantity, retailCostPerUnit);
-  // }
-
   getPlayerSettings() {
     return {
       lowLevelThreshold: this.lowLevelThreshold,

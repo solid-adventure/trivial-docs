@@ -35,7 +35,6 @@ const litSegments = computed(() => Math.floor(props.value / 10));
   flex-direction: column;
   gap: 8px;
   width: 80px;
-/*  background-color: #2c2c2c;*/
   padding: 10px;
   border-radius: 5px;
 }
@@ -49,7 +48,5 @@ const litSegments = computed(() => Math.floor(props.value / 10));
 
 .meter-rectangle.lit {
   background-color: var(--p-primary-color);
-/*  background-color: rgb(32 182 94);*/
-/*  box-shadow: 0 0 5px #00ff00;*/
 }
 </style>

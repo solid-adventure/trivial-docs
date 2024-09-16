@@ -20,6 +20,7 @@ const todaysStats = ref({});
 const gameFinishedMessage = ref('');
 const displayInstructions = ref(true);
 const confettiPlayed = ref(false)
+const dayDuration = ref(250);
 
 const customerLoyalty = computed(() => {
   return (todaysStats.value.customerLoyalty || 0) * 100;
@@ -67,10 +68,6 @@ const balanceIndicator = computed(() => {
   return Math.min(game.value.balance / game.value.initialBalance * 100, 100)
 })
 
-const setDisplayInstructions = (val=false) => {
-  displayInstructions.value = val;
-}
-
 const toggleGame = () => {
   game.value.toggleGame(lowLevelThreshold, orderQuantity, retailCostPerUnit)
 }
@@ -84,7 +81,7 @@ const startGame = (reset=false) => {
 
 const newGame = () => {
   game.value = new BrandGame();
-  game.value.setDayDuration(500);
+  game.value.setDayDuration(dayDuration.value);
   dailyStats.value = [];
   gameFinishedMessage.value = '';
   confettiPlayed.value = false;
@@ -135,8 +132,7 @@ const playConfetti = () => {
 
 onMounted(() => {
 
-  // // To change the day duration (e.g., to 50 = 1 day per second):
-  game.value.setDayDuration(500);
+  game.value.setDayDuration(dayDuration.value);
 
   return {
     game,
@@ -152,7 +148,6 @@ onMounted(() => {
     retailCostPerUnit,
     isGameRunning,
     toggleGame,
-    setDisplayInstructions,
     startGame,
     newGame,
   }
@@ -200,7 +195,6 @@ watch(retailCostPerUnit, (newVal, oldVal) => {
     <p>You're charged a daily storage fee and inventory takes 3 weeks to arrive, so watch your inventory levels!</p>
 
     <p>Double your money as fast as possible to set a new record.</p>
-    <!-- <Button @click="setDisplayInstructions(false)" outlined label="Let's Go!" icon="pi pi-play" iconPos="left" /> -->
   </div>
 
   <div class="game-container">

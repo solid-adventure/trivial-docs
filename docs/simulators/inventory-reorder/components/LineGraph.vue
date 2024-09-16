@@ -78,13 +78,7 @@ export default {
       chart.data.datasets[0].data = props.data.map(item => item.balance);
       chart.data.datasets[1].data = props.data.map(item => item.cumulativeRevenue);
       chart.data.datasets[2].data = props.data.map(item => item.cumulativeCogs);
-
       chart.update();
-
-      // if (chart) {
-      //   chart.destroy();
-      // }
-      // createChart();
     }, { deep: true });
 
     return {
