@@ -188,7 +188,7 @@ watch(retailCostPerUnit, (newVal, oldVal) => {
 
 <template>
   <div v-if="displayInstructions" class="instructions">
-    <p>You thought time flies IRL&mdash; in this simulation days go by every 1/2 a second.</p>
+    <p>You thought time flies IRL&mdash; in this simulation, a day takes a quarter of a second.</p>
 
     <p>And every day, customers are trying to buy from your online shop. Set your prices too low, and you'll run out of cash. Set them too high, and customers won't buy!</p>
 
