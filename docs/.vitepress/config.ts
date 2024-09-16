@@ -53,11 +53,12 @@ export default defineConfig({
           // { text: 'Glossary', link: '/glossary'  },
         ]
       },
-      // {
-      //   text: 'Accountants',
-      //   items: [
-      //   ]
-      // },
+      {
+        text: 'Simulators',
+        items: [
+          { text: 'D2C Lemonade Stand', link: '/simulators/inventory-reorder/' },
+        ]
+      },
       {
         text: 'Developer Guides', link: '/developers',
         items: [
