@@ -80,6 +80,7 @@ export default defineConfig({
           { text: 'Permissions', link: '/developer-guides/permissions' },
           { text: 'Registers', link: '/developer-guides/registers' },
           { text: 'Reports', link: '/developer-guides/reports' },
+          { text: 'Rules', link: '/developer-guides/rules' },
           { text: 'Self Hosting', link: '/developer-guides/self-hosting' },
           { text: 'Version Control Strategy',
             collapsed: true,
