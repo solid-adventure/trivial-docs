@@ -65,6 +65,7 @@ export default defineConfig({
           { text: 'Introduction', link: '/developers' },
 
           { text: 'Actions', link: '/developer-guides/actions' },
+          { text: 'Activity Entry Search', link: '/developer-guides/activity-entry-search' },
           // { text: 'API Reference', link: '/api-reference'  },
           { text: 'App Tags', link: '/developer-guides/app-tags' },
           { text: 'Audits', link: '/developer-guides/audits'},
