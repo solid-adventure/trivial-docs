@@ -41,7 +41,7 @@ class RandomNumberService {
 ```
 
 :::danger A note on security
-When making API calls, be sure to consider the security implications. If you're making a call to an API that requires an API key, never hard-code the key into the builder. Instead, store the key as an environement variable in the runtime context, and allow the service to access it. With this pattern, the API key is never be exposed outside of the runtime context.
+When making API calls, be sure to consider the security implications. If you're making a call to an API that requires an API key, never hard-code the key into the builder. Instead, store the key as an environment variable in the runtime context, and allow the service to access it. With this pattern, the API key is never be exposed outside of the runtime context.
 :::
 
 ### Step 2. Add the Service to the Runtime Context
